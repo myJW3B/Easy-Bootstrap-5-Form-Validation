@@ -6,16 +6,16 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<link rel="stylesheet" href="bootstrap5.min.css">
+	<link rel="stylesheet" href="example/bootstrap5.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
-	<header class="py-3 bg-primary-subtle">
+	<header class="py-3 bg-primary-subtle fixed-top">
 		<div class="container d-flex justify-content-center">
 			<ul class="nav nav-pills">
 				<li class="nav-item"><a href="https://github.com/myJW3B/Easy-Bootstrap-5-Form-Validation" class="nav-link">
-						<i class="bi bi-github"></i> Github</a></li>
+						<i class="bi bi-github"></i> <span class="d-none d-lg-inline-block">Github</span></a></li>
 				<li class="nav-item"><a href="#example" class="nav-link">Example</a></li>
 				<li class="nav-item"><a href="#simple-example" class="nav-link">Simple Example</a></li>
 				<li class="nav-item"><a href="#guide" class="nav-link">Guide</a></li>
@@ -24,12 +24,34 @@
 			</ul>
 		</div>
 	</header>
-	<main>
+	<main
+		data-bs-spy="scroll" data-bs-target="#navbar-example2"
+		data-bs-root-margin="50px 0px -40%"
+		data-bs-smooth-scroll="true"
+		class="scrollspy-example bg-body-tertiary mt-5"
+		tabindex="0">
 		<section id="example" class="container">
 			<div class="row">
 				<div class="mx-auto col-12 col-md-10 col-lg-8 pt-5">
+					<h3>Example</h3>
+					<div class="mb-3 p-3 bg-dark-subtle border border-secondary-subtle rounded">
+						<ol>
+							<li>Fill out the form below.</li>
+							<li>Display Name length needs to be between 3-30 characters.</li>
+							<li>Email has to be correct format.</li>
+							<li>Passwords have to match.</li>
+							<li>Uses ajax to check ifbinput value can be used.<br>
+								Use cases:
+								<ul>
+									<li>Check if email is already found.</li>
+									<li>Check if post name is already found.</li>
+									<li>ect...</li>
+								</ul>
+							</li>
+						</ol>
+					</div>
 					<form role="form" id="register-form" action="javascript:void(0);" method="post"
-						class="jw3b-form border rounded bg-dark p-4 p-md-3 border-primary">
+						class="jw3b-form border rounded bg-dark-subtle p-4 p-md-3 border-primary-subtle">
 						<h4 class="border-bottom border-primary mb-3">Register Below</h4>
 						<div class="input-group">
 							<span class="input-group-text"><i class="bi bi-person-fill"></i></span>
@@ -92,8 +114,8 @@
 						</div>
 						<div id="register-form-results"></div>
 						<input type="hidden" name="form_id" value="register-form" id="form-id-register-form">
+						<hr>
 						<div class="text-center clearfix">
-							<hr>
 							<button id="register-form-btn" class="w-100 btn btn-lg btn-primary" type="submit">
 								<i class="bi bi-check-lg"></i> Register
 							</button>
@@ -118,53 +140,67 @@
 					<div class="mb-3 p-3 bg-dark-subtle border border-primary-subtle rounded">
 						<code>&lt;div class="</code>mb-3<code>"&gt;<br>
 							&nbsp;&nbsp;&lt;label for="</code>example<code>" class="</code>form-label<code>"&gt;</code><span class="text-white-50">Username</span><code>&lt;/label&gt;<br>
-								&nbsp;&nbsp;&lt;input type="</code>text<code>" class="</code>form-control <span class="text-warning">mf-valid</span><code>" id="</code><span class="text-info">example</span><code>" <br>
+								&nbsp;&nbsp;&lt;input type="</code>text<code>" class="</code>form-control <span class="text-warning fw-bold">mf-valid</span><code>" id="</code><span class="text-info">example</span><code>" <br>
 									&nbsp;&nbsp;&nbsp;&nbsp;placeholder="</code>Type A Name<code>"  required</code><br>
-									&nbsp;&nbsp;&nbsp;&nbsp;<code class="text-success-emphasis">minlength="</code><span class="text-warning">4</span><code class="text-success-emphasis">" maxlength="</code><span class="text-warning">30</span><code class="text-success-emphasis">" pattern="</code><span class="text-warning">[a-z]{4,30}</span><code class="text-success-emphasis">"<br>
-									&nbsp;&nbsp;&nbsp;&nbsp;data-error-msg="</code><span class="text-warning">Username must be lowercase between 4-30 characters long.</span><code class="text-success-emphasis">"&gt;</code><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code class="text-success-emphasis">minlength="</code><span class="text-warning">4</span><code class="text-success-emphasis">" maxlength="</code><span class="text-warning">30</span><code class="text-success-emphasis">" pattern="</code><span class="text-warning">[a-z]{4,30}</span><code class="text-success-emphasis">"<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;data-error-msg="</code><span class="text-warning-emphasis">Username must be lowercase between 4-30 characters long.</span><code class="text-success-emphasis">"&gt;</code><br>
 									&nbsp;&nbsp;<code>&lt;div class="</code>form-text mb-3<code>" id="</code><span class="text-info">example</span>-valid<code>"&gt;&lt;/div&gt;<br>
 							&lt;/div&gt;
 						</code>
 					</div>
-					<p>Notice the html attributes <code>minlength</code>, <code>maxlength</code> and <code>pattern</code>? That literally does the trick here for validating.</p>
-					<p>Ensure the input element has an id that matches the beginning of the <code>form-text</code> div after the element, with <code>-valid</code> added to that div. This is the element that will display the error message when the form element does not validate.</p>
+					<div class="mb-3 p-3 bg-dark-subtle border border-secondary-subtle rounded">
+						<p>Notice the html attributes <code>minlength</code>, <code>maxlength</code> and <code>pattern</code>? That literally does the trick here for validating.</p>
+						<p>Ensure the input element has an id that matches the beginning of the <code>form-text</code> div after the element, with <code>-valid</code> added to that div. This is the element that will display the error message when the form element does not validate.</p>
+					</div>
 				</div>
 			</div>
 		</section>
 		<hr>
 		<section id="guide" class="container">
 			<div class="row">
-				<div class="mx-auto col-12 col-md-10 col-lg-8">
+				<div class="mx-auto col-12 col-lg-10">
 					<h3>How to use</h3>
-					<p>Add the javascript file to your page.</p>
-					<p><code>&lt;script src="mf-valid.js">&lt;/script></code></p>
-					<p>Add <code>required</code> to your form elements.</p>
-					<p>Add <code>mf-valid</code> class to your form elements class you want the validator to check.</p>
+					<div class="mb-3 p-3 bg-dark-subtle border border-secondary-subtle rounded">
+						<p>Add the javascript file to your page.</p>
+						<p><code>&lt;script src="mf-valid.js">&lt;/script></code></p>
+						<p>Add <code>required</code> to your form elements.</p>
+						<p>Add <code>mf-valid</code> class to your form elements class you want the validator to check.</p>
+					</div>
 					<h4>Add <code>data-*</code> to the form elements</h4>
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col">attribute</th>
-								<th scope="col">required</th>
-								<th scope="col">value</th>
+								<th scope="col">Attribute</th>
+								<th scope="col">Required</th>
+								<th scope="col">Example Value</th>
+								<th scope="col">Explain Value</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td style="white-space:pre;"><code>data-error-msg</code></td>
 								<td>no</td>
+								<td><code>Input is not correct, try again</code></td>
 								<td>The value will be the error message shown under the element that is invalid.</td>
 							</tr>
 							<tr>
 								<td style="white-space:pre;"><code>data-mf-ajax-url</code></td>
 								<td>no</td>
+								<td><code>/ajax.php</code></td>
 								<td>The URL to send the post data and check if the value of this element is useable or of correct
 									backend format.</td>
 							</tr>
 							<tr>
 								<td style="white-space:pre;"><code>data-mf-ajax-check</code></td>
-								<td>yes, if data-mf-ajax-url is found, this attribute must be found also.</td>
-								<td>This is the key to check against in your backend script.</td>
+								<td>yes, if <code>data-mf-ajax-url</code> is found, this attribute must be found also.</td>
+								<td><code>email</code></td>
+								<td>This is the key to check against in your backend script.<br><code>email=${input.value}</code> would be sent to the server via a fetch post.</td>
+							</tr>
+							<tr>
+								<td style="white-space:pre;"><code>data-mf-same-as</code></td>
+								<td>no</td>
+								<td><code>#password2</code></td>
+								<td>Example usage is to ensure 2 password fields have the same value.</td>
 							</tr>
 						</tbody>
 					</table>
@@ -261,7 +297,16 @@
 			</div>
 		</section>
 		<section id="about" class="container">
-
+			<div class="row">
+				<div class="mx-auto col-12 col-md-10 col-lg-8">
+					<h3>About Me.</h3>
+					<div class="mb-3 p-3 bg-dark-subtle border border-primary-subtle rounded">
+						<p>Sup, Yohn here, I wanted a simple way to validate my forms using <code>data-*</code> attributes, and everything I've found online had so much extra markup, and unneeded code, that truly is amazing for what they are and what they can accomplish, but way to bloated for what I was looking for.</p>
+						<p>So I spent a few hours playing around with native browser validation and came up with this approach to validate forms. Yes, it could have been wrapped a class, and made easier, but really, its not that much code to go along with it, so I figured this would be the best way to have it.</p>
+						<p>I also included some ajax / fetch functions that I use for submiting forms, works with multiple uploads and normal forms, or if you just wanted to do some quick ajax checks (like check if email has been used before in signup process).</p>
+					</div>
+				</div>
+			</div>
 		</section>
 	</main>
 	<footer>
@@ -271,7 +316,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
-	<script src="mf-valid.js"></script>
+	<script src="example/mf-valid.js"></script>
 </body>
 
 </html>
