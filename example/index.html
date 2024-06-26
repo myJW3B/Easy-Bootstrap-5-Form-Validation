@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+	<title>Easy Boostrap 5 Form Validation</title>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link rel="stylesheet" href="bootstrap5.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+	<header class="py-3 bg-primary-subtle">
+		<div class="container d-flex justify-content-center">
+			<ul class="nav nav-pills">
+				<li class="nav-item"><a href="https://github.com/myJW3B/Easy-Bootstrap-5-Form-Validation" class="nav-link">
+						<i class="bi bi-github"></i> Github</a></li>
+				<li class="nav-item"><a href="#example" class="nav-link">Example</a></li>
+				<li class="nav-item"><a href="#simple-example" class="nav-link">Simple Example</a></li>
+				<li class="nav-item"><a href="#guide" class="nav-link">Guide</a></li>
+				<li class="nav-item"><a href="#faq" class="nav-link">FAQs</a></li>
+				<li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+			</ul>
+		</div>
+	</header>
+	<main>
+		<section id="example" class="container">
+			<div class="row">
+				<div class="mx-auto col-12 col-md-10 col-lg-8 pt-5">
+					<form role="form" id="register-form" action="javascript:void(0);" method="post"
+						class="jw3b-form border rounded bg-dark p-4 p-md-3 border-primary">
+						<h4 class="border-bottom border-primary mb-3">Register Below</h4>
+						<div class="input-group">
+							<span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+							<div class="floating-label">
+								<input id="mf-rname" name="mf-rname" value="" class="mf-valid form-control" required
+									placeholder="Display Name" minlength="3" maxlength="30"
+									data-error-msg="Display name has to be at between 3-30 characters long" type="text">
+								<label for="mf-rname">Display Name</label>
+							</div>
+						</div>
+						<div class="form-text mb-3" id="mf-rname-valid"></div>
+						<div class="input-group">
+							<span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+							<div class="floating-label">
+								<input id="mf-remail" name="mf-remail" value="" class="mf-valid form-control" required type="email"
+									placeholder="your@email.com" data-error-msg="Please enter a valid email address."
+									data-mf-ajax-check="email" data-mf-ajax-url="email.json">
+								<label for="mf-remail">your@email.com</label>
+							</div>
+						</div>
+						<div class="form-text mb-3" id="mf-remail-valid"></div>
+						<div class="input-group">
+							<span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+							<div class="floating-label">
+								<input id="mf-rpass" name="mf-rpass" value="" class="mf-valid form-control" required
+									placeholder="Password" type="password" minlength="6" data-mf-same-as="#mf-rpass2"
+									data-error-msg="Min 6 characters or passwords are not the same.">
+								<label for="mf-rpass">Password</label>
+							</div>
+						</div>
+						<div class="form-text mb-3" id="mf-rpass-valid"></div>
+						<div class="input-group">
+							<span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+							<div class="floating-label ">
+								<input id="mf-rpass2" name="mf-rpass2" value="" class="mf-valid form-control" required
+									placeholder="Confirm Password" type="password" minlength="6" data-mf-same-as="#mf-rpass"
+									data-error-msg="Min 6 characters or passwords are not the same.">
+								<label for="mf-rpass2">Confirm Password</label>
+							</div>
+						</div>
+						<div class="form-text mb-3" id="mf-rpass2-valid"></div>
+						<div class="input-group">
+							<span class="input-group-text"><i class="bi bi-globe-americas"></i></span>
+							<span class="input-group-text">https://</span>
+							<div class="floating-label ">
+								<input id="mf-rweb" name="mf-rweb" value="" class="mf-valid form-control" required placeholder="Website"
+									minlength="4" data-mf-ajax-url="website-url.json" data-mf-ajax-check="website-url"
+									data-error-msg="4 characters long min." type="text">
+								<label for="mf-rweb">Website</label>
+							</div>
+							<span class="input-group-text">.exam.ple</span>
+						</div>
+						<div class="form-text" id="mf-rweb-valid"></div>
+						<div class="form-text mb-3">Examples are cool</div>
+						<div class=" checkbox mb-3">
+							<label for="mf-rterms">
+								<input id="mf-rterms" name="mf-rterms" value="1" type="checkbox">
+								By clicking Register, you agree to the terms of use.
+							</label>
+						</div>
+						<div id="register-form-results"></div>
+						<input type="hidden" name="form_id" value="register-form" id="form-id-register-form">
+						<div class="text-center clearfix">
+							<hr>
+							<button id="register-form-btn" class="w-100 btn btn-lg btn-primary" type="submit">
+								<i class="bi bi-check-lg"></i> Register
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+		<hr>
+		<section id="simple-example" class="container">
+			<div class="row">
+				<div class="mx-auto col-12 col-md-10 col-lg-8">
+					<h3>Simple Example</h3>
+					<div class="mb-3 p-3 bg-dark-subtle border border-primary-subtle rounded">
+						<label for="example" class="form-label">Username</label>
+						<input type="text" class="form-control mf-valid" id="example" placeholder="Type A Name" minlength="4"
+							maxlength="30" pattern="[a-z]{4,30}" required
+							data-error-msg="Username must be lowercase between 4-30 characters long.">
+						<div class="form-text mb-3" id="example-valid"></div>
+					</div>
+					<h3>Code</h3>
+					<div class="mb-3 p-3 bg-dark-subtle border border-primary-subtle rounded">
+						<code>&lt;div class="</code>mb-3<code>"&gt;<br>
+							&nbsp;&nbsp;&lt;label for="</code>example<code>" class="</code>form-label<code>"&gt;</code><span class="text-white-50">Username</span><code>&lt;/label&gt;<br>
+								&nbsp;&nbsp;&lt;input type="</code>text<code>" class="</code>form-control <span class="text-warning">mf-valid</span><code>" id="</code><span class="text-info">example</span><code>" <br>
+									&nbsp;&nbsp;&nbsp;&nbsp;placeholder="</code>Type A Name<code>"  required</code><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<code class="text-success-emphasis">minlength="</code><span class="text-warning">4</span><code class="text-success-emphasis">" maxlength="</code><span class="text-warning">30</span><code class="text-success-emphasis">" pattern="</code><span class="text-warning">[a-z]{4,30}</span><code class="text-success-emphasis">"<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;data-error-msg="</code><span class="text-warning">Username must be lowercase between 4-30 characters long.</span><code class="text-success-emphasis">"&gt;</code><br>
+									&nbsp;&nbsp;<code>&lt;div class="</code>form-text mb-3<code>" id="</code><span class="text-info">example</span>-valid<code>"&gt;&lt;/div&gt;<br>
+							&lt;/div&gt;
+						</code>
+					</div>
+					<p>Notice the html attributes <code>minlength</code>, <code>maxlength</code> and <code>pattern</code>? That literally does the trick here for validating.</p>
+					<p>Ensure the input element has an id that matches the beginning of the <code>form-text</code> div after the element, with <code>-valid</code> added to that div. This is the element that will display the error message when the form element does not validate.</p>
+				</div>
+			</div>
+		</section>
+		<hr>
+		<section id="guide" class="container">
+			<div class="row">
+				<div class="mx-auto col-12 col-md-10 col-lg-8">
+					<h3>How to use</h3>
+					<p>Add the javascript file to your page.</p>
+					<p><code>&lt;script src="mf-valid.js">&lt;/script></code></p>
+					<p>Add <code>required</code> to your form elements.</p>
+					<p>Add <code>mf-valid</code> class to your form elements class you want the validator to check.</p>
+					<h4>Add <code>data-*</code> to the form elements</h4>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">attribute</th>
+								<th scope="col">required</th>
+								<th scope="col">value</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td style="white-space:pre;"><code>data-error-msg</code></td>
+								<td>no</td>
+								<td>The value will be the error message shown under the element that is invalid.</td>
+							</tr>
+							<tr>
+								<td style="white-space:pre;"><code>data-mf-ajax-url</code></td>
+								<td>no</td>
+								<td>The URL to send the post data and check if the value of this element is useable or of correct
+									backend format.</td>
+							</tr>
+							<tr>
+								<td style="white-space:pre;"><code>data-mf-ajax-check</code></td>
+								<td>yes, if data-mf-ajax-url is found, this attribute must be found also.</td>
+								<td>This is the key to check against in your backend script.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</section>
+		<hr>
+		<section id="faq" class="container mb-5">
+			<div class="row">
+				<div class="mx-auto col-12 col-md-10 col-lg-8">
+					<h3>Frequently Asked Questions</h3>
+					<div class="accordion" id="accordionPanelsStayOpenExample">
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button" type="button" data-bs-toggle="collapse"
+									data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+									aria-controls="panelsStayOpen-collapseOne">
+									Is JQuery Used?
+								</button>
+							</h2>
+							<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+								<div class="accordion-body">
+									<strong>NO!</strong>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+									data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+									aria-controls="panelsStayOpen-collapseTwo">
+									Can I use in my projects?
+								</button>
+							</h2>
+							<div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+								<div class="accordion-body">
+									<strong>YES!</strong> MIT License, do as you want, just dont hold me liable for any misuse you may
+									come
+									across. Its your job as a developer to ensure no security issues may arise.
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+									data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+									aria-controls="panelsStayOpen-collapseThree">
+									Does this work fro &lt;select&gt; and &lt;textarea&gt; tags?
+								</button>
+							</h2>
+							<div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+								<div class="accordion-body">
+									<p>I did some testing with <code>&lt;select&gt;</code> tags, but was unable to get the validation to
+										pop
+										up in the native browser validation. I do plan on tweaking this more to ensure it does work with
+										select
+										tags as well.</p>
+									<p>I have not done any testing with <code>&lt;textarea&gt;</code> tags, but I'm sure if you added the
+										maxlength or min length to the <code>&lt;textarea&gt;</code> tag it will work.
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+									data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
+									aria-controls="panelsStayOpen-collapseFour">
+									Why not use <code>document.createElement()</code> for the notification?
+								</button>
+							</h2>
+							<div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+								<div class="accordion-body">
+									Because if you look at the top example, I'm using input-groups and custom floating labels, so fimding the correct parent element would be complicated depending on the setup. So I opt'd for just putting the <code>&lt;div&gt;</code> with the <code>mb-3</code> where the error notice should go.
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+									data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
+									aria-controls="panelsStayOpen-collapseFive">
+									Your floating labels are different than what Bootstrap offers, how / why?
+								</button>
+							</h2>
+							<div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
+								<div class="accordion-body">
+									Because I found an awesome <a href="https://github.com/tkrotoff/bootstrap-floating-label">tkrotoff/bootstrap-floating-label</a> plugin and I prefer this technique way more than bootstrap's native floating labels. Thank you <a href="https://github.com/tkrotoff">tkrotoff</a> for sharing your project!
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="about" class="container">
+
+		</section>
+	</main>
+	<footer>
+
+	</footer>
+	<!-- Bootstrap JavaScript Libraries -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+	<script src="mf-valid.js"></script>
+</body>
+
+</html>
