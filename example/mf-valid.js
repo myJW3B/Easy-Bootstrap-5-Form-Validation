@@ -165,4 +165,12 @@ window.addEventListener("DOMContentLoaded", function () {
 			}
 		})
 	}
+	async function developerExcuses() {
+		const response = await fetch("https://api.devexcus.es/");
+		//document.getElementById('devex').innerHTML = await response.json();
+		return await response.json();
+	}
+	developerExcuses().then((data) => {
+		document.getElementById('devex').innerHTML = data.text
+	})
 })
