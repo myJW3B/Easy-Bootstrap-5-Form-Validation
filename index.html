@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<link rel="stylesheet" href="example/bootstrap5.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/hybrid.min.css">
 </head>
 
 <body>
@@ -155,6 +156,85 @@
 				</div>
 			</div>
 		</section>
+		<hr>
+		<section id="full-code" class="container">
+			<div class="row">
+				<div class="mx-auto col-12 col-md-10 col-lg-8">
+					<h3>Full Code</h3>
+<pre class="mb-3 p-3 bg-dark-subtle border border-primary-subtle rounded">
+<code class="language-html">&lt;form role="form" id="register-form" action="javascript:void(0);" method="post"
+	class="jw3b-form border rounded bg-dark-subtle p-4 p-md-3 border-primary-subtle"&gt;
+	&lt;h4 class="border-bottom border-primary mb-3"&gt;Register Below&lt;/h4&gt;
+	&lt;div class="input-group"&gt;
+		&lt;span class="input-group-text"&gt;&lt;i class="bi bi-person-fill"&gt;&lt;/i&gt;&lt;/span&gt;
+		&lt;div class="floating-label"&gt;
+			&lt;input id="mf-rname" name="mf-rname" value="" class="mf-valid form-control" required
+				placeholder="Display Name" minlength="3" maxlength="30"
+				data-error-msg="Display name has to be at between 3-30 characters long" type="text"&gt;
+			&lt;label for="mf-rname"&gt;Display Name&lt;/label&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="form-text mb-3" id="mf-rname-valid"&gt;&lt;/div&gt;
+	&lt;div class="input-group"&gt;
+		&lt;span class="input-group-text"&gt;&lt;i class="bi bi-envelope-fill"&gt;&lt;/i&gt;&lt;/span&gt;
+		&lt;div class="floating-label"&gt;
+			&lt;input id="mf-remail" name="mf-remail" value="" class="mf-valid form-control" required type="email"
+				placeholder="your@email.com" data-error-msg="Please enter a valid email address."
+				data-mf-ajax-check="email" data-mf-ajax-url="email.json"&gt;
+			&lt;label for="mf-remail"&gt;your@email.com&lt;/label&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="form-text mb-3" id="mf-remail-valid"&gt;&lt;/div&gt;
+	&lt;div class="input-group"&gt;
+		&lt;span class="input-group-text"&gt;&lt;i class="bi bi-key-fill"&gt;&lt;/i&gt;&lt;/span&gt;
+		&lt;div class="floating-label"&gt;
+			&lt;input id="mf-rpass" name="mf-rpass" value="" class="mf-valid form-control" required
+				placeholder="Password" type="password" minlength="6" data-mf-same-as="#mf-rpass2"
+				data-error-msg="Min 6 characters or passwords are not the same."&gt;
+			&lt;label for="mf-rpass"&gt;Password&lt;/label&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="form-text mb-3" id="mf-rpass-valid"&gt;&lt;/div&gt;
+	&lt;div class="input-group"&gt;
+		&lt;span class="input-group-text"&gt;&lt;i class="bi bi-key-fill"&gt;&lt;/i&gt;&lt;/span&gt;
+		&lt;div class="floating-label "&gt;
+			&lt;input id="mf-rpass2" name="mf-rpass2" value="" class="mf-valid form-control" required
+				placeholder="Confirm Password" type="password" minlength="6" data-mf-same-as="#mf-rpass"
+				data-error-msg="Min 6 characters or passwords are not the same."&gt;
+			&lt;label for="mf-rpass2"&gt;Confirm Password&lt;/label&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="form-text mb-3" id="mf-rpass2-valid"&gt;&lt;/div&gt;
+	&lt;div class="input-group"&gt;
+		&lt;span class="input-group-text"&gt;&lt;i class="bi bi-globe-americas"&gt;&lt;/i&gt;&lt;/span&gt;
+		&lt;span class="input-group-text"&gt;https://&lt;/span&gt;
+		&lt;div class="floating-label "&gt;
+			&lt;input id="mf-rweb" name="mf-rweb" value="" class="mf-valid form-control" required placeholder="Website"
+				minlength="4" data-mf-ajax-url="website-url.json" data-mf-ajax-check="website-url"
+				data-error-msg="4 characters long min." type="text"&gt;
+			&lt;label for="mf-rweb"&gt;Website&lt;/label&gt;
+		&lt;/div&gt;
+		&lt;span class="input-group-text"&gt;.exam.ple&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="form-text" id="mf-rweb-valid"&gt;&lt;/div&gt;
+	&lt;div class="form-text mb-3"&gt;Examples are cool&lt;/div&gt;
+	&lt;div class=" checkbox mb-3"&gt;
+		&lt;label for="mf-rterms"&gt;
+			&lt;input id="mf-rterms" name="mf-rterms" value="1" type="checkbox"&gt;
+			By clicking Register, you agree to the terms of use.
+		&lt;/label&gt;
+	&lt;/div&gt;
+	&lt;div id="register-form-results"&gt;&lt;/div&gt;
+	&lt;input type="hidden" name="form_id" value="register-form" id="form-id-register-form"&gt;
+	&lt;hr&gt;
+	&lt;div class="text-center clearfix"&gt;
+		&lt;button id="register-form-btn" class="w-100 btn btn-lg btn-primary" type="submit"&gt;
+			&lt;i class="bi bi-check-lg"&gt;&lt;/i&gt; Register
+		&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/form&gt;
+</code>
+</pre>
 		<hr>
 		<section id="guide" class="container">
 			<div class="row">
@@ -324,7 +404,11 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 		crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 	<script src="example/mf-valid.js"></script>
+	<script>
+		hljs.highlightAll();
+	</script>
 </body>
 
 </html>
