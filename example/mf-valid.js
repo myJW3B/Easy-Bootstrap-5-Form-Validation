@@ -3,20 +3,21 @@
 async function postForm(form) {
 	// Associate the FormData object with the form element
 	const formData = new FormData(form)
-	let method = form.getAttribute('method')
+	let method = form.getAttribute('method').toUpperCase();
 	let url = form.getAttribute('action')
-	let upload = form.hasAttribute('enctype') ? form.getAttribute('enctype') : false
+	let upload = form.getAttribute('enctype') === 'multipart/form-data'
+
 	const fid = form.getAttribute('id')
 	if (upload == true) {
 		let files = form.querySelector('input[type="file"]').files
 		let file_count = files.length
-		if (file_count == 1) {
-			formData.append('file', files)
-		} else if (file_count > 1) {
-			for (var i = 0; i < file_count; i++) {
-				formData.append('file', files[i])
+		if (files.length === 1) {
+			formData.append('file', files[0]); // Append single file
+		} else {
+			for (let i = 0; i < files.length; i++) {
+					formData.append(`file[${i}]`, files[i]); // Append multiple files
 			}
-		} else { }
+		}
 	}
 	const response = await fetch(url, {
 		method: method,
